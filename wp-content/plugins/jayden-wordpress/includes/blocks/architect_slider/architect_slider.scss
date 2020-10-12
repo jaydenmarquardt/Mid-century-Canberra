@@ -1,0 +1,36 @@
+.jm-block-architect-slider
+{
+  padding: 0 20px;
+
+  .post-base
+  {
+    .uk-slidenav{
+      display: none;
+    }
+  }
+
+  ul, .uk-position-relative{
+    overflow: visible;
+  }
+
+  .uk-slidenav {
+
+    transform: translate(40px, -50%);
+
+    &.uk-slidenav-previous {
+      transform: translate(-40px, -50%);
+
+    }
+
+    &:hover {
+      transform: translate(40px, -50%) scale(1.5);
+
+      &.uk-slidenav-previous {
+        transform: translate(-40px, -50%) scale(1.5);
+
+      }
+    }
+  }
+
+
+  }

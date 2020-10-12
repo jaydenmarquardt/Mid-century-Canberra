@@ -1,0 +1,359 @@
+$primary_colour: #007cba;
+$second_colour: #003e84b5;
+$grey_colour: #3e3c3c;
+$primary_colour_trans: #62aafab5;
+
+html {
+  background: $primary_colour;
+
+  body {
+    background: $primary_colour;
+  }
+}
+#site-header, .footer-nav-widgets-wrapper, #site-footer, .menu-modal, .menu-modal-inner, .search-modal-inner, .archive-header, .singular .entry-header, .singular .featured-media:before, .wp-block-pullquote:before {
+  background-color: $grey_colour;
+}
+.site-logo img {
+  max-height: 8rem;
+  position: absolute;
+  top: 10px;
+}
+.header-footer-group, body:not(.overlay-header) #site-header .toggle, .menu-modal .toggle {
+  color: #3274d6;
+}
+.header-inner .primary-menu-wrapper + .header-toggles .toggle-wrapper:first-child::before {
+  display: none;
+}
+.search-toggle {
+  svg {
+    color: #3274d6;
+  }
+
+  span.toggle-text {
+    display: none;
+
+
+  }
+}
+
+  .footer-nav-widgets-wrapper
+  {
+    background: $grey_colour;
+
+    .widget-title
+    {
+      color: $primary_colour;
+      font-size: 40px;
+    }
+
+    .textwidget
+    {
+      color:white;
+      font-size: 25px;
+    }
+  }
+  .footer-widgets-outer-wrapper {
+    border-bottom: none;
+  }
+
+  .widget.widget_media_image {
+
+
+    img {
+      width: 180px;
+    }
+  }
+
+  .footer-widgets .widget {
+    margin-top: 0;
+  }
+  #site-footer
+  {
+    background: #212020;
+  }
+  #site-footer .section-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    .footer-credits {
+      align-items: center;
+      justify-content: space-between;
+      .footer-copyright
+      {
+        margin-right: 20px;
+      }
+    }
+  }
+  .entry-content > .alignfull {
+    margin-bottom: 80px!important;
+    margin-top: 80px!important;
+  }
+  .alignfull:first-child {
+    margin-bottom: 80px!important;
+  }
+  .entry-content {
+    font-family: "Inter var", serif;
+    letter-spacing: normal;
+  }
+
+  .post-inner .entry-content > .wp-block-cover.alignwide:first-child, .post-inner .entry-content > .wp-block-cover.alignfull:first-child {
+    margin-top: 0!important;
+  }
+
+  .big-clicker
+  {
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+  }
+
+  a.button {
+    background-color: $grey_colour;
+    transition: all 0.2s ease-in-out;
+    &:hover
+    {
+      background-color: $second_colour;
+      color:white;
+      text-decoration: none;
+    }
+  }
+
+
+  .post-base
+  {
+    position: relative;
+    background-color: white;
+    .image
+    {
+      height: 230px;
+      background-size: cover;
+      background-position: 50% 50%;
+      width: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .cta
+    {
+      height: fit-content;
+      width: 100%;
+
+      .button
+      {
+        width: 100%;
+        position: relative;
+        z-index: 10;
+      }
+
+    }
+    .big-clicker{
+      z-index: 5;
+
+    }
+
+    .content{
+      padding: 20px;
+
+      h3{
+        margin:0;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+
+  }
+  .uk-slidenav {
+    background: $second_colour;
+    z-index: 12;
+    color: white!important;
+    transition: all 0.2s ease-in-out;
+    transform: translate(-20px, -50%) ;
+    &.uk-slidenav-previous
+    {
+      transform: translate(20px, -50%) ;
+
+    }
+    &:hover
+    {
+      transform: translate(-20px, -50%) scale(1.5);
+      &.uk-slidenav-previous
+      {
+        transform: translate(20px, -50%) scale(1.5);
+
+      }
+    }
+  }
+
+  .post-house
+  {
+
+    .uk-slideshow-items
+    {
+      position: relative;
+      z-index: 10;
+      li{
+        margin: 0;
+      }
+      height: 230px;
+
+    }
+
+    .gal-image
+    {
+      height: 230px;
+      background-size: cover;
+      background-position: 50% 50%;
+      width: 100%;
+      background-repeat: no-repeat;
+    }
+
+
+    .age{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: $primary_colour_trans;
+      font-size: 20px;
+      padding: 5px 15px;
+      color: white;
+      font-weight: 500;
+      z-index: 12;
+
+    }
+    .price{
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: #008000b5;
+      font-size: 20px;
+      padding: 5px 15px;
+      color: white;
+      font-weight: 500;
+      z-index: 12;
+    }
+    .content{
+      padding-bottom: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid;
+      padding: 10px 0 0;
+      margin: 10px -20px 0;
+
+      & > div{
+        font-size: 22px;
+        text-align: center;
+        margin: 10px;
+
+        i{
+          font-size: 26px;
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+  }
+
+  .post-architect
+  {
+
+
+    margin-top: 115px;
+
+    .age{
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      width: fit-content;
+      transform: translateX(-50%);
+      background: $primary_colour_trans;
+      font-size: 20px;
+      padding: 5px 15px;
+      color: white;
+      font-weight: 500;
+      z-index: 12;
+
+    }
+    .image {
+      border-radius: 50%;
+      width: 230px;
+      height: 230px;
+      margin: 0 auto;
+      transform: translateY(-50%);
+      margin-bottom: -115px;
+    }
+
+    .content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid;
+      padding: 10px 0 0;
+      margin: 10px -20px 0;
+
+      & > div{
+        font-size: 22px;
+        text-align: center;
+        margin: 10px;
+
+        i{
+          font-size: 26px;
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+  }
+
+
+  .contain
+  {
+    background-size: contain!important;
+  }
+
+  .locate-houses
+  {
+    background: white;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: scroll;
+    max-height: 100vh;
+
+    .uk-slidenav {
+      display: none;
+    }
+    .post-house
+    {
+      border: 1px solid $grey_colour;
+      p {
+        margin: 0;
+      }
+      .info > div {
+        font-size: 14px;
+
+        i {
+          font-size: 16px;
+        }
+
+      }
+    }
+  }
