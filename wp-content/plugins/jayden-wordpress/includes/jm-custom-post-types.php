@@ -79,6 +79,7 @@ class JM_CPT
         $args = array_merge($args, $atts);
 
         register_taxonomy( JM_UTIL::slugify($name)."_tax", $post_types, $args );
+        register_taxonomy_for_object_type( JM_UTIL::slugify($name)."_tax", $post_types );
 
     }
 }

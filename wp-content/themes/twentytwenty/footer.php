@@ -14,7 +14,8 @@
 ?>
 			<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
-				<div class="section-inner">
+
+                   <div class="section-inner">
 
 					<div class="footer-credits">
 
@@ -52,7 +53,16 @@
 					</a><!-- .to-the-top -->
 
 				</div><!-- .section-inner -->
-
+                <div class="section-inner" style="text-align: center;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;">
+                    <div>
+                        <small style="text-align: center">This website was produced by students in the Faculty of Arts & Design, University of Canberra. The text and images reproduced on this site were generously provided by
+                            <a target="_blank" href="http://www.canberrahouse.com.au/">Canberra House</a></small>
+                    </div>
+                </div>
 			</footer><!-- #site-footer -->
 
 		<?php wp_footer(); ?>

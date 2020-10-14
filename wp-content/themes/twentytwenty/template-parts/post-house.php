@@ -71,7 +71,7 @@ if(!$house_to_text)$house_to_text = "View House";
        <a class="big-clicker" href="<?php echo $link;?>"></a>
        <div class="cta">
 
-           <a class="button" href="<?php echo link;?>"><?php echo $house_to_text;?></a>
+           <a class="button" href="<?php echo $link;?>"><?php echo $house_to_text;?></a>
 
        </div>
 

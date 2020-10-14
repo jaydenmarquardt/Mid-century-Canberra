@@ -54,12 +54,13 @@ get_header();
 
                     <div class="uk-width-1-3@m uk-width-1-1@s">
 
+                        <div><h2 class='uk-text-center'>Houses</h2></div>
                         <div class="locate-houses uk-height-1-1">
 
                             <?php
 
                             if ( $query->have_posts() ) :
-                                echo "<h2 class='uk-text-center'>Houses</h2>";
+
                                 echo "<div class='uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-small uk-grid-margin' uk-grid  uk-height-match=\"target: .post-base > .content;\">";
                                 global $house_to_text;
                                 $house_to_text = "Go To";
@@ -79,10 +80,11 @@ get_header();
 
                     </div>
                     <div class="uk-width-2-3@m uk-width-1-1@s">
+                        <div><h2 class='uk-text-center'>House Locations</h2></div>
 
                         <div>
 
-                            <div id="googleMap" style="width:100%;height:100vh;"></div>
+                            <div id="googleMap" style="width:100%;height:90vh;"></div>
 
                         </div>
 
