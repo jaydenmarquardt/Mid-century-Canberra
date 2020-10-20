@@ -31,7 +31,6 @@ $entry_header_classes = "";
             $source = get_field("source");
 
             echo "<h3 style='color:white'>Date of birth:</h3><small style='color:white'>$DOB</small>";
-            echo "<h3 style='color:white'>Sources:</h3><small style='color:white'>$source</small>"
             ?>
 
 
@@ -48,14 +47,15 @@ $entry_header_classes = "";
 			<?php
             the_content( __( 'Continue reading', 'twentytwenty' ) );
 			?>
-
+           <div> <h3 >Sources:</h3><small style=''><?php echo $source;?></small>
+           </div>
             <h2>My Houses</h2>
             <?php
             $posts = get_field("houses");
             ?>
 
               <div class="uk-container uk-container-center">
-                  <div class=" uk-grid" uk-height-match="target: .post-base > .content;">
+                  <div class=" uk-grid uk-child-width-1-3@l uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-margin" uk-height-match="target: .post-base > .content;">
                       <?php if( $posts ) :
                           foreach( $posts as $postOBJ ) :
 
@@ -65,7 +65,7 @@ $entry_header_classes = "";
                               setup_postdata($post);
 
                               ?>
-                              <div class="uk-width-1-3">
+                              <div style="margin-bottom: 20px">
 
                                   <?php get_template_part( 'template-parts/post', get_post_type() ); ?>
 

@@ -57,7 +57,7 @@ class architect_slider extends JM_Block
 
             </div>
             <div class="uk-flex uk-flex-center uk-margin-top">
-                <a class="button" href="/architects">View All</a>
+                <a class="button" href="/architect_tax/all-architects/">View All</a>
 
             </div>
 

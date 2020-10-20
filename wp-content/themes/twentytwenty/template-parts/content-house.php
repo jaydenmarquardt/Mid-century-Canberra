@@ -11,6 +11,36 @@
  * @since Twenty Twenty 1.0
  */
 $entry_header_classes = "";
+
+global $post;
+
+$address = get_field("address", $post);
+$beds = get_field("bedrooms", $post);
+$baths = get_field("bathrooms", $post);
+$land = get_field("land", $post);
+$description = get_field("description", $post);
+$source = get_field("source", $post);
+$significance = get_field("significance", $post);
+$acknowledgements = get_field("acknowledgements", $post);
+$price = number_format(get_field("value", $post));
+$timeline = get_field("time_frame", $post);
+$age = explode(" - ", $time_line);
+$age = intval(date("Y"))-intval($age[1]);
+
+$gallery = get_field("gallery", $post);
+$gallery = array_splice($gallery, 0, 3);
+
+if(!$gallery)
+{
+    $gallery = [];
+}
+if(!count($gallery))
+{
+
+    $gallery[] = JM_UTIL::get_image($post->ID, "post-thumb");
+}
+
+
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -48,28 +78,33 @@ $entry_header_classes = "";
                 the_title( '<h2 class="entry-title heading-size-1"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
             }
 
-            $intro_text_width = '';
 
-            if ( is_singular() ) {
-                $intro_text_width = ' small';
-            } else {
-                $intro_text_width = ' thin';
-            }
 
-            if ( has_excerpt() && is_singular() ) {
-                ?>
 
-                <div class="intro-text section-inner max-percentage<?php echo $intro_text_width; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>">
-                    <?php the_excerpt(); ?>
-                </div>
-
-                <?php
-            }
-
-            // Default to displaying the post meta.
-            twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
             ?>
 
+            <div class="info uk-flex uk-flex-wrap uk-flex-between uk-flex-center " style="margin:20px auto;max-width: 50% ;color:white;">
+                <div title="Price">
+                    <i class="fas fa-dollar-sign"></i>
+                    <?php echo $price;?>
+                </div>
+                <div title="Age">
+                    <i class="fas fa-hourglass"></i>
+                    <?php echo $age;?> - <?php echo $timeline;?>
+                </div>
+                <div title="Bedrooms">
+                    <i class="fas fa-bed"></i>
+                    <?php echo $beds;?>
+                </div>
+                <div title="Bathrooms">
+                    <i class="fas fa-bath"></i>
+                    <?php echo $baths;?>
+                </div>
+                <div title="Land size">
+                    <i class="fas fa-ruler-combined"></i>
+                    <?php echo $land;?>
+                </div>
+            </div>
         </div><!-- .entry-header-inner -->
 
     </header><!-- .entry-header -->
@@ -77,7 +112,25 @@ $entry_header_classes = "";
 
     <div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 
+
 		<div class="entry-content">
+            <div class="uk-position-relative full-gal" tabindex="-1" uk-slideshow>
+
+                <ul class="uk-slideshow-items">
+                    <?php foreach ($gallery as $gal):?>
+                        <li>
+                            <div class="gal-image-full  <?php echo JM_UTIL::has_image($post->ID) ? "" : "contain";?>" style="background-image: url(<?php echo is_array( $gal) ? $gal["url"] : $gal;?>)">  </div>
+                        </li>
+                    <?php endforeach;?>
+
+                </ul>
+
+                <a class="uk-position-bottom-left uk-position-small" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-bottom-right uk-position-small " href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            </div>
+
+            <br>
 
 			<?php
 			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
@@ -86,6 +139,11 @@ $entry_header_classes = "";
 				the_content( __( 'Continue reading', 'twentytwenty' ) );
 			}
 			?>
+
+            <?php if($description):?><h2>Description</h2><p><?php echo $description;?></p><?php endif;?>
+            <?php if($significance):?><h2>Significance</h2><p><?php echo $significance;?></p><?php endif;?>
+            <?php if($acknowledgements):?><h2>Acknowledgements</h2><p><?php echo $acknowledgements;?></p><?php endif;?>
+            <?php if($source):?><h2>Source</h2><p><?php echo $source;?></p><?php endif;?>
 
 		</div><!-- .entry-content -->
 

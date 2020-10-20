@@ -32,6 +32,7 @@ class JM_API {
         include_once JM_PATH_INCLUDES."jm-utilities.php";
         include_once JM_PATH_INCLUDES."jm-acf-blocks.php";
         include_once JM_PATH_INCLUDES."jm-block.php";
+        include_once JM_PATH_INCLUDES."jm-custom-queries.php";
 
     }
 
@@ -61,6 +62,7 @@ class JM_API {
         JM_CPT::add_custom_taxonomy("House",  "house");
         JM_CPT::add_custom_taxonomy("Architect",  "architect");
         JM_Blocks::init();
+        JM_QUERY::init();
 
         add_image_size( 'post-thumb', 500, 300 );
 //        add_image_size( 'custom-size', 220, 180 );

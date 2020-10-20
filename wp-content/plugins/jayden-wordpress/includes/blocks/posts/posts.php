@@ -34,12 +34,12 @@ class posts extends JM_Block
         ?>
         <div>
             <h2 class="uk-text-center"><?php echo get_field("title");?></h2>
-            <div  uk-grid uk-height-match="target: .post-base > .content;" >
+            <div  uk-grid uk-grid-margin uk-height-match="target: .post-base > .content;" >
                  <?php if( $query->have_posts() ) :
                         while( $query->have_posts() ) :
                             $query->the_post();
                             ?>
-                            <div class="uk-width-1-3">
+                            <div class="uk-width-1-3@xl uk-width-1-2@m uk-width-1-1@s ">
 
                                 <?php get_template_part( 'template-parts/post', get_post_type() ); ?>
 
@@ -48,7 +48,7 @@ class posts extends JM_Block
 
             </div>
             <div class="uk-flex uk-flex-center uk-margin-top">
-                <a class="button" href="/news">View All</a>
+                <a class="button" href="/category/news">View All</a>
 
             </div>
 

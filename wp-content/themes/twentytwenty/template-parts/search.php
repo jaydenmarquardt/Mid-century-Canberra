@@ -49,7 +49,7 @@ if ( have_posts() ) {
 
     $i = 0;
 
-    echo "<div class='uk-child-width-1-3@m uk-child-width-1-1@s uk-grid-margin' uk-grid  uk-height-match=\"target: .post-base > .content;\">";
+    echo "<div class='uk-child-width-1-3@l uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-margin' uk-grid  uk-height-match=\"target: .post-base > .content;\">";
     while ( have_posts() ) {
         $i++;
         the_post();

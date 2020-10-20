@@ -33,14 +33,14 @@ class house_slider extends JM_Block
         ?>
         <div>
             <h2 class="uk-text-center"><?php echo get_field("title");?></h2>
-            <div class="uk-position-relative " tabindex="-1" uk-slider="finite: false;">
+            <div class="uk-position-relative " tabindex="-1" uk-slider="finite: false;" >
 
-                <ul class="uk-slider-items uk-grid" uk-height-match="target: .post-base > .content;">
+                <ul class="uk-slider-items uk-grid" >
                     <?php if( $query->have_posts() ) :
                         while( $query->have_posts() ) :
                             $query->the_post();
                             ?>
-                            <li class="uk-width-1-4">
+                            <li class="uk-width-1-4@xl uk-width-1-2@m uk-width-1-1@s">
 
                                 <?php get_template_part( 'template-parts/post', get_post_type() ); ?>
 
@@ -55,7 +55,7 @@ class house_slider extends JM_Block
 
             </div>
             <div class="uk-flex uk-flex-center uk-margin-top">
-                <a class="button" href="/houses">View All</a>
+                <a class="button" href="/house_tax/all-houses/">View All</a>
 
             </div>
 

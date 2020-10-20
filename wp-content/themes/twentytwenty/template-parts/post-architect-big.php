@@ -3,7 +3,9 @@ global $post;
 
 $houses = get_field("houses", $post);
 $age = get_field("dob", $post);
-$age = intval(date("Y"))-intval($age[1]);
+
+
+$age = intval(date("Y"))-intval($age);
 
 
 global $architect_to_text;

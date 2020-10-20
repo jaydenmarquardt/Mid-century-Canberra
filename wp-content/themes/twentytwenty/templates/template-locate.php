@@ -34,7 +34,8 @@ foreach ($query->get_posts() as $post)
     ];
 }
 //echo "<pre>"; var_dump($markers);echo "</pre>";
-
+global $is_loacate;
+$is_loacate = true;
 get_header();
 
 ?>
@@ -50,9 +51,9 @@ get_header();
 
             ?>
 
-                <div class="uk-grid uk-grid-collapse">
+                <div class="uk-grid uk-grid-collapse uk-flex-wrap-reverse">
 
-                    <div class="uk-width-1-3@m uk-width-1-1@s">
+                    <div class="uk-width-1-3@m uk-width-1-1@s ">
 
                         <div><h2 class='uk-text-center'>Houses</h2></div>
                         <div class="locate-houses uk-height-1-1">
@@ -61,14 +62,14 @@ get_header();
 
                             if ( $query->have_posts() ) :
 
-                                echo "<div class='uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-small uk-grid-margin' uk-grid  uk-height-match=\"target: .post-base > .content;\">";
+                                echo "<div class='uk-child-width-1-2@l uk-child-width-1-1@m uk-grid-small uk-grid-margin' uk-grid  uk-height-match=\"target: .post-base > .content;\">";
                                 global $house_to_text;
                                 $house_to_text = "Go To";
                                 while ($query->have_posts() ) :
                                     $query->the_post();
-                                    echo "<div><div class='uk-position-relative' style='height: 600px;'>";
+                                    echo "<div style='margin-bottom: 20px'><div class='uk-position-relative' style=''>";
                                     get_template_part( 'template-parts/post', get_post_type() );
-                                    echo "<a class='big-clicker' style='z-index:15' href='#' data-map-location='".get_the_ID()."'></a></div></div>";
+                                    echo "<a class='big-clicker' style='z-index:15' href='#top' data-map-location='".get_the_ID()."'></a></div></div>";
 
                                 endwhile;
                                 wp_reset_postdata();
@@ -80,7 +81,7 @@ get_header();
 
                     </div>
                     <div class="uk-width-2-3@m uk-width-1-1@s">
-                        <div><h2 class='uk-text-center'>House Locations</h2></div>
+                        <div><h2 id="top" class='uk-text-center'>House Locations</h2></div>
 
                         <div>
 
@@ -180,7 +181,6 @@ get_header();
             $(document).ready(function () {
 
                 $("[data-map-location]").on("click", function (event) {
-                    event.preventDefault();
                     $pid = $(this).attr("data-map-location");
                     $loc = markers[$pid];
                     map.panTo(new google.maps.LatLng(  $loc.lat, $loc.lng ));
@@ -188,7 +188,7 @@ get_header();
                         smoothZoom( 18, map.getZoom(), true);
 
                     }, 200);
-
+                    return true;
                 })
             });
         })
